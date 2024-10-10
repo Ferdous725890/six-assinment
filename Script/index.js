@@ -57,12 +57,21 @@ const displayDetails = (petData) => {
     console.log(petData);
     const detailsContainer = document.getElementById('modal-content');
     detailsContainer.innerHTML = `
-        <img src="${petData.image}" alt="Pet Image"/>
-        <p>${petData.breed}</p>
-        <p>${petData.date_of_birth}</p>
-        <p>${petData.price}</p>
-        <p>${petData.gender}</p>
-        <p>${petData.pet_details}</p>
+        <img class='w-full rounded-lg mb-5' src="${petData.image}" alt="Pet Image"/>
+        <div class='grid grid-cols-2 mb-4'>
+        <div class="flex mb-1 items-center"><p class='mb-1'><div> <img class='mr-2' src="images/Frame (1).png"></div> Breed:${petData.breed}</p></div>
+        <div class="flex mr-2 items-center"><p><div><img src="images/gender.png"></div> Gender:${petData.gender}</p></div>
+        <div class="flex mb-1 mr-2 items-center"><p><div><img class='mr-2' src="images/birth.png"></div> Birth:${petData.date_of_birth}</p></div>
+        <div class="flex mr-2 items-center"><p><div><img src="images/price.png"></div> Price: ${petData.price}</p></div>
+      
+        </div>
+        <div class="divider"></div>
+        <div>
+        <p class='text-lg font-black mb-5'>Details Information</p>
+        <p>Vaccinated status:${petData.pet_details}</p>
+        
+        </div>
+
     `;
     document.getElementById('my_modal_5').showModal();
 };
@@ -103,15 +112,17 @@ const displayAllPetsData = (pets) => {
                     <p class="card-title text-xl font-black">
                         ${pet.pet_name}
                     </p>
-                    <p class='flex-row'>
-                        <img class='me-2' src="/images/Frame (1).png" />
-                        Breed: ${pet.breed && pet.breed.length > 0 ? pet.breed : 'Not found !'}
+                   <p class='flex-row'>
+                    <img class='me-2' src="/images/Frame (1).png" />
+                     Breed: <span class="${pet.breed && pet.breed.length > 0 ? '' : 'text-red-500'}">
+                     ${pet.breed && pet.breed.length > 0 ? pet.breed : 'Not found !'}
+                    </span>
                     </p>
                     <div class='flex'>
                     <p class='flex-row'>
                     <img class='me-2' src="/images/Frame (1).png" />
-                        Breed: <span class="${pet.breed && pet.breed.length > 0 ? '' : 'text-red-500'}">
-                        ${pet.breed && pet.breed.length > 0 ? pet.breed : 'Not found !'}
+                        Birth:<span class="${pet.date_of_birth && pet.date_of_birth.length > 0 ? '' : 'text-red-500'}">
+                        ${pet.date_of_birth && pet.date_of_birth.length > 0 ? pet.date_of_birth : 'Not found !'}
                     </span>
                     </p>
                     </div>
