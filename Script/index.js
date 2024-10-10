@@ -193,20 +193,47 @@ const displayShow = (categories) => {
 loadcategoriesData()
 loadAllPetsData()
 
-const adopt = () =>{
-    console.log('hello');
-    let num = 4;
-const time = document.getElementById('time');
-const clockTime = setInterval(() => {
-    num--;
-    if (num <= 0) {
-        clearInterval(clockTime);
-    }
-    time.textContent = num;
-}, 1000);
+const adopt = () => {
+    let num = 3; // Start from 3
+    const time = document.getElementById('time');
 
-document.getElementById("my_modal_1").showModal()
+    // Update the text content immediately to show 3
+    time.textContent = num;
+
+    const clockTime = setInterval(() => {
+        num--; // Decrease num by 1
+        if (num < 0) { // Check if num is less than 0
+            clearInterval(clockTime);
+            document.getElementById("my_modal_1").close(); // Close the modal
+            return; // Exit the function
+        }
+        time.textContent = num; // Update displayed number
+    }, 1000);
+
+    document.getElementById("my_modal_1").showModal();
 }
+
+
+
+
+
+
+
+
+
+// const adopt = () =>{
+//     let num = 4;
+// const time = document.getElementById('time');
+// const clockTime = setInterval(() => {
+//     num--;
+//     if (num <= 0) {
+//         clearInterval(clockTime);
+//     }
+//     time.textContent = num;
+// }, 1000);
+
+// document.getElementById("my_modal_1").showModal()
+// }
 
 
 

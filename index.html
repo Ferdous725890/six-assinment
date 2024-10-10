@@ -49,7 +49,7 @@
     <header class="br sticky top-0 bg-white z-[100]">
         <!------------------------------------------------------ Nav Section Start  -->
         <!--  mt-8 mb-8  top-8-->
-        <section class="container mx-auto">
+        <section class="container mx-auto w-11/12">
             <nav class="flex mx-auto items-center justify-between pt-8 mb-7">
                 <div class="flex items-center">
                     <img class="mr-2" src="images/logo.webp" alt="">
@@ -121,7 +121,7 @@
     </main>
 
     <!-- Open the modal using ID.showModal() method -->
-    <button class="btn" onclick="loadDetails(5)">open modal</button>
+    <button class="btn hidden" onclick="loadDetails(5)">open modal</button>
     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
             <div id="modal-content"></div>
@@ -133,14 +133,18 @@
         </div>
     </dialog>
 
-    <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+    <button class="btn hidden" onclick="my_modal_1.showModal()">open modal</button>
     <dialog id="my_modal_1" class="modal">
         <div class="modal-box">
-            <p id="time"></p>
-            <p class="py-4">Press ESC key or click the button below to close</p>
+            <div class="w-40 h-40 flex items-center justify-center mx-auto">
+                <img src="images/hand.png" alt="">
+            </div>
+            <p class="flex items-center justify-center font-black text-2xl">Adoption Process is Starting for Your Pet</p>
+            <p id="time" class="flex items-center justify-center font-black text-8xl">
+
+            </p>
             <div class="modal-action">
                 <form method="dialog">
-                    if there is a button in form, it will close the modal
                     <button class="btn">Close</button>
                 </form>
             </div>
@@ -225,8 +229,3 @@
 
 
 
-
-<div class="flex items-center justify-center"><p class='mb-1'> <img src="images/Frame (1).png"> Breed:${petData.breed}</p></div>
-<div class="flex items-center justify-center"><p><img src="images/gender.png"> Gender:${petData.gender}</p></div>
-<div class="flex items-center justify-center"><p><img src="images/birth.png"> Birth:${petData.date_of_birth}</p></div>
-<div class="flex items-center justify-center"><p><img src="images/price.png"> Price: ${petData.price}</p></div>
