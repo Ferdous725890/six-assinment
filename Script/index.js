@@ -1,3 +1,73 @@
+const showSpinner = () => {
+    document.getElementById('spinner').style.display = 'block';
+};
+
+const hideSpinner = () => {
+    document.getElementById('spinner').style.display = 'none';
+};
+
+const loadCategoryPet = (id) => {
+    showSpinner();
+    fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            removeClass();
+            const HoverBtn = document.getElementById(`btn-${id}`);
+            HoverBtn.classList.add('hoverpets-btn');
+            displayAllPetsData(data.data);
+        })
+        .finally(() => hideSpinner()) // Hide the spinner after the fetch is done
+        .catch(error => {
+            console.log(error);
+            hideSpinner(); // Ensure spinner is hidden even on error
+        });
+};
+
+const sortPetsByPrice = () => {
+    showSpinner();
+    fetch('https://openapi.programming-hero.com/api/peddy/pets')
+        .then(res => res.json())
+        .then(data => {
+            let pets = data.pets;
+
+            if (!isSortedByPrice) {
+                pets.sort((a, b) => b.price - a.price);
+                isSortedByPrice = true;
+            } else {
+                loadAllPetsData(); // Reset to original order
+                return; // Exit the function
+            }
+            displayAllPetsData(pets);
+        })
+        .finally(() => hideSpinner()) // Hide the spinner after the fetch is done
+        .catch(error => {
+            console.log(error);
+            hideSpinner(); // Ensure spinner is hidden even on error
+        });
+};
+
+const loadcategoriesData = () => {
+    showSpinner(); // Show spinner before fetching data
+    fetch('https://openapi.programming-hero.com/api/peddy/categories')
+        .then(res => res.json())
+        .then(data => displayShow(data.categories))
+        .catch(error => console.log(error))
+        .finally(() => hideSpinner()); // Hide spinner after data is loaded
+};
+
+const loadAllPetsData = () => {
+    showSpinner(); // Show spinner before fetching data
+    fetch('https://openapi.programming-hero.com/api/peddy/pets')
+        .then(res => res.json())
+        .then(data => displayAllPetsData(data.pets))
+        .catch(error => console.log(error))
+        .finally(() => hideSpinner()); // Hide spinner after data is loaded
+};
+
+
+
+
+
 const likeBtn = (petId, imageUrl) => {
     const petsAllData = document.getElementById('like-pets');
     const likedPetDiv = document.createElement('div');
@@ -6,21 +76,24 @@ const likeBtn = (petId, imageUrl) => {
         <img class="rounded-[8px] h-full w-full" src="${imageUrl}" alt="Liked pet image">
     `;
     petsAllData.appendChild(likedPetDiv);
+   
 };
 
-const loadcategoriesData = () => {
-    fetch('https://openapi.programming-hero.com/api/peddy/categories')
-        .then(res => res.json())
-        .then(data => displayShow(data.categories))
-        .catch(error => console.log(error))
+// const loadcategoriesData = () => {
+//     fetch('https://openapi.programming-hero.com/api/peddy/categories')
+//         .then(res => res.json())
+//         .then(data => displayShow(data.categories))
+//         .catch(error => console.log(error))
         
-}
-const loadAllPetsData = () => {
-    fetch('https://openapi.programming-hero.com/api/peddy/pets')
-        .then(res => res.json())
-        .then(data => displayAllPetsData(data.pets))
-        .catch(error => console.log(error))
-}
+// }
+
+// const loadAllPetsData = () => {
+//     fetch('https://openapi.programming-hero.com/api/peddy/pets')
+//         .then(res => res.json())
+//         .then(data => displayAllPetsData(data.pets))
+//         .catch(error => console.log(error))
+// }
+
 
 
 const removeClass = () => {
@@ -31,18 +104,18 @@ const removeClass = () => {
 
 }
 
-const loadCategoryPet = (id) => {
-   console.log("this is id", id);
-    fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
-        .then(res => res.json())
-        .then(data => {
-            removeClass()
-            const HoverBtn = document.getElementById(`btn-${id}`)
-            HoverBtn.classList.add('hoverpets-btn')
-            displayAllPetsData(data.data)
-            .catch(error => console.log(error))
-        })
-};
+// const loadCategoryPet = (id) => {
+//    console.log("this is id", id);
+//     fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
+//         .then(res => res.json())
+//         .then(data => {
+//             removeClass()
+//             const HoverBtn = document.getElementById(`btn-${id}`)
+//             HoverBtn.classList.add('hoverpets-btn')
+//             displayAllPetsData(data.data)
+//             .catch(error => console.log(error))
+//         })
+// };
 
 
 
@@ -86,10 +159,10 @@ const displayAllPetsData = (pets) => {
     if (pets.length == 0) {
         petsAllData.classList.remove('grid')
         petsAllData.innerHTML = `
-             <div class="h-[400px] w-[780px]  bd flex flex-col gap-5 justify-center items-center">
+             <div class="max-h-[400px] max-w-[780px] w-full h-full bd flex flex-col gap-5 justify-center items-center">
                 <img src="images/error.webp" alt="">
-                <h1 class="">No Information Available</h1>
-                <p class="">It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
+                <h1 class="text-xl font-black">No Information Available</h1>
+                <p class="text-sm font-medium">It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
                 its layout. The point of using Lorem Ipsum is that it has a.</p>
             </div>
         `
@@ -108,11 +181,11 @@ const displayAllPetsData = (pets) => {
                 <figure>
                     <img class='w-full rounded-lg object-cover' src="${pet.image}" alt="Image of ${pet.breed}" />
                 </figure>
-                <div class="">
+                <div class="mt-3">
                     <p class="card-title text-xl font-black">
                         ${pet.pet_name}
                     </p>
-                   <p class='flex-row'>
+                   <p class='flex-row mt-2'>
                     <img class='me-2' src="/images/Frame (1).png" />
                      Breed: <span class="${pet.breed && pet.breed.length > 0 ? '' : 'text-red-500'}">
                      ${pet.breed && pet.breed.length > 0 ? pet.breed : 'Not found !'}
@@ -120,7 +193,7 @@ const displayAllPetsData = (pets) => {
                     </p>
                     <div class='flex'>
                     <p class='flex-row'>
-                    <img class='me-2' src="/images/Frame (1).png" />
+                    <img class='me-2' src="/images/birth.png" />
                         Birth:<span class="${pet.date_of_birth && pet.date_of_birth.length > 0 ? '' : 'text-red-500'}">
                         ${pet.date_of_birth && pet.date_of_birth.length > 0 ? pet.date_of_birth : 'Not found !'}
                     </span>
@@ -154,22 +227,14 @@ const displayAllPetsData = (pets) => {
     });
 }
 
-// const displayShow = (categories) => {
-//     const categoryContainer = document.getElementById('categories');
-//     categories.forEach(item => {
-//         const buttonContainer = document.createElement('div');
-//         buttonContainer.classList.add('mb-20','w-4/5','flex','items-center')
-//         buttonContainer.innerHTML = `
 
-//         <button  class='flex categories-button rounded-2xl items-center gap-4 py-3 px-16 category-btn id="btn-${item.category}" onclick="loadCategoryPet('${item.category}')"'>
-//         ${item.category}
-//         <div class='w-14 h-14'> <img class='w-14' src="${item.category_icon}" </div>
-//         </button>
-//         `;
 
-//         categoryContainer.appendChild(buttonContainer);
-//     });
-// };
+
+
+
+
+let isSortedByPrice = false; 
+
 
 const displayShow = (categories) => {
     const categoryContainer = document.getElementById('categories');
@@ -178,7 +243,7 @@ const displayShow = (categories) => {
         buttonContainer.classList.add('mb-24','flex','items-center','container','justify-center')
         buttonContainer.innerHTML = `
 
-        <button id="btn-${item.category}" onclick="loadCategoryPet('${item.category}')" class='flex categories-button rounded-2xl items-center justify-center gap-2 py-3 px-14 category-btn text-xl font-black bf'>
+        <button id="btn-${item.category}" onclick="loadCategoryPet('${item.category}')" class='flex categories-button rounded-2xl items-center justify-center gap-2 py-3 px-14 category-btn text-xl font-black'>
         ${item.category}
         <div class='w-10 h-12'> <img class='w-14' src="${item.category_icon}" </div>
         </button>
@@ -194,70 +259,22 @@ loadcategoriesData()
 loadAllPetsData()
 
 const adopt = () => {
-    let num = 3; // Start from 3
+    let num = 3; 
     const time = document.getElementById('time');
 
-    // Update the text content immediately to show 3
+  
     time.textContent = num;
 
     const clockTime = setInterval(() => {
-        num--; // Decrease num by 1
-        if (num < 0) { // Check if num is less than 0
+        num--; 
+        if (num < 0) { 
             clearInterval(clockTime);
-            document.getElementById("my_modal_1").close(); // Close the modal
-            return; // Exit the function
+            document.getElementById("my_modal_1").close();l
+            return; 
         }
-        time.textContent = num; // Update displayed number
+        time.textContent = num; 
     }, 1000);
 
     document.getElementById("my_modal_1").showModal();
 }
 
-
-
-
-
-
-
-
-
-// const adopt = () =>{
-//     let num = 4;
-// const time = document.getElementById('time');
-// const clockTime = setInterval(() => {
-//     num--;
-//     if (num <= 0) {
-//         clearInterval(clockTime);
-//     }
-//     time.textContent = num;
-// }, 1000);
-
-// document.getElementById("my_modal_1").showModal()
-// }
-
-
-
-
-
-
-
-// const loadDetails = (petId) => {
-//     fetch('https://openapi.programming-hero.com/api/peddy/pet/5')
-//         .then(res => res.json())
-//         .then(data => desplayDetails(data.petData))
-//         // .catch(error => console(error))
-// }
-// const desplayDetails = (petData) => {
-//     console.log(petData);
-//     const detailsConteiner = document.getElementById('modal-content')
-//     detailsConteiner.innerHTML = `
-// <img src=${petData.image}/>
-// <p>${petData.breed}</p>
-// <p>${petData.date_of_birth}</p>
-// <p>${petData.price}</p>
-// <p>${petData.gender}</p>
-// <p>${petData.pet_details}</p>
-// `
-// document.getElementById('my_modal_5').showModal();
-  
-// }

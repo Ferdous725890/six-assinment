@@ -1,47 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Another Spinner Example</title>
+    <style>
+        #spinner {
+            width: 60px;
+            height: 60px;
+            border: 8px solid transparent;
+            border-top: 8px solid orange;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: relative;
+            margin: 50px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
-
 <body>
-    <h1>hello</h1>
-    <div id="time"></div>
-
-
-
-
-
-
+    <div id="spinner"></div>
 
     <script>
-        // let num = 0
-        // const time= document.getElementById('time')
-        // const clockTime = setInterval(() => {
-        //     num++;
-        //     if( num > 6 ){
-        //         clearInterval(clockTime)
-        //     }
-        //     console.log(num);
-        //     time.append(num)
+        function callFunction() {
+            console.log("Function called!");
+            // Place your functionality here
+        }
 
-        // }, 1000);
-
-
-        let num = 0;
-        const time = document.getElementById('time');
-        const clockTime = setInterval(() => {
-            num++;
-            if (num > 6) {
-                clearInterval(clockTime);
-            }
-            time.textContent = num;
-        }, 1000);
-
+        setInterval(callFunction, 2000); // Calls the function every 2 seconds
     </script>
 </body>
-
 </html>
