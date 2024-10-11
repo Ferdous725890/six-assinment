@@ -16,10 +16,10 @@ const loadCategoryPet = (id) => {
             HoverBtn.classList.add('hoverpets-btn');
             displayAllPetsData(data.data);
         })
-        .finally(() => hideSpinner()) // Hide the spinner after the fetch is done
+        .finally(() => hideSpinner()) 
         .catch(error => {
             console.log(error);
-            hideSpinner(); // Ensure spinner is hidden even on error
+            hideSpinner(); 
         });
 };
 
@@ -34,34 +34,34 @@ const sortPetsByPrice = () => {
                 pets.sort((a, b) => b.price - a.price);
                 isSortedByPrice = true;
             } else {
-                loadAllPetsData(); // Reset to original order
-                return; // Exit the function
+                loadAllPetsData(); 
+                return; 
             }
             displayAllPetsData(pets);
         })
-        .finally(() => hideSpinner()) // Hide the spinner after the fetch is done
+        .finally(() => hideSpinner()) 
         .catch(error => {
             console.log(error);
-            hideSpinner(); // Ensure spinner is hidden even on error
+            hideSpinner(); 
         });
 };
 
 const loadcategoriesData = () => {
-    showSpinner(); // Show spinner before fetching data
+    showSpinner(); 
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
         .then(res => res.json())
         .then(data => displayShow(data.categories))
         .catch(error => console.log(error))
-        .finally(() => hideSpinner()); // Hide spinner after data is loaded
+        .finally(() => hideSpinner()); 
 };
 
 const loadAllPetsData = () => {
-    showSpinner(); // Show spinner before fetching data
+    showSpinner();
     fetch('https://openapi.programming-hero.com/api/peddy/pets')
         .then(res => res.json())
         .then(data => displayAllPetsData(data.pets))
         .catch(error => console.log(error))
-        .finally(() => hideSpinner()); // Hide spinner after data is loaded
+        .finally(() => hideSpinner()); 
 };
 
 
@@ -79,23 +79,6 @@ const likeBtn = (petId, imageUrl) => {
    
 };
 
-// const loadcategoriesData = () => {
-//     fetch('https://openapi.programming-hero.com/api/peddy/categories')
-//         .then(res => res.json())
-//         .then(data => displayShow(data.categories))
-//         .catch(error => console.log(error))
-        
-// }
-
-// const loadAllPetsData = () => {
-//     fetch('https://openapi.programming-hero.com/api/peddy/pets')
-//         .then(res => res.json())
-//         .then(data => displayAllPetsData(data.pets))
-//         .catch(error => console.log(error))
-// }
-
-
-
 const removeClass = () => {
     const buttons = document.getElementsByClassName('category-btn')
     for (btnButton of buttons) {
@@ -104,26 +87,11 @@ const removeClass = () => {
 
 }
 
-// const loadCategoryPet = (id) => {
-//    console.log("this is id", id);
-//     fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
-//         .then(res => res.json())
-//         .then(data => {
-//             removeClass()
-//             const HoverBtn = document.getElementById(`btn-${id}`)
-//             HoverBtn.classList.add('hoverpets-btn')
-//             displayAllPetsData(data.data)
-//             .catch(error => console.log(error))
-//         })
-// };
-
-
-
 const loadDetails = (petId) => {
     fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petId}`)
         .then(res => res.json())
         .then(data => displayDetails(data.petData))
-        .catch(error => console.error(error)); // Make sure to log errors
+        .catch(error => console.error(error)); 
 };
 
 const displayDetails = (petData) => {
@@ -150,7 +118,7 @@ const displayDetails = (petData) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    // You can add any additional initialization code here
+
 });
 
 
@@ -172,7 +140,7 @@ const displayAllPetsData = (pets) => {
     }
     petsAllData.innerHTML = ""
     pets.forEach(pet => {
-        // console.log(pet);
+
         const card = document.createElement('div')
         card.classList = 'card'
         card.innerHTML = `
@@ -252,8 +220,6 @@ const displayShow = (categories) => {
         categoryContainer.appendChild(buttonContainer);
     });
 };
-
-
 
 loadcategoriesData()
 loadAllPetsData()

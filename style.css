@@ -9,14 +9,6 @@
   color: rgb(19, 19, 19);
 }
 
-/* Example           */
-.bf{
-  border: 1px solid red ;
-}
-/* .by{
-  border: 1px solid yellow ;
-} */
-
 .br{
 border-bottom: 1px solid lightgray;
 }
@@ -36,20 +28,8 @@ border-bottom: 1px solid lightgray;
 }
 .categories-button{
   border: 1px solid rgba(14, 122, 129, 0.15);
-  
-   /* border: 1px solid red; */
+
 }
-
-
-.textss{
-  color: red;
-}
-
-
-
-
-
-
 
 .spinner {
   position: fixed;
