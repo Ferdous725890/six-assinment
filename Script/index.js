@@ -40,8 +40,8 @@ const loadCategoryPet = (id) => {
             const HoverBtn = document.getElementById(`btn-${id}`)
             HoverBtn.classList.add('hoverpets-btn')
             displayAllPetsData(data.data)
+            .catch(error => console.log(error))
         })
-        .catch(error => console.log(error))
 };
 
 
@@ -104,11 +104,11 @@ const displayAllPetsData = (pets) => {
         card.classList = 'card'
         card.innerHTML = `
 
-                <div class="card glass p-4 ">
+                <div class="card glass p-4">
                 <figure>
                     <img class='w-full rounded-lg object-cover' src="${pet.image}" alt="Image of ${pet.breed}" />
                 </figure>
-                <div class="card-body">
+                <div class="">
                     <p class="card-title text-xl font-black">
                         ${pet.pet_name}
                     </p>
@@ -172,15 +172,15 @@ const displayAllPetsData = (pets) => {
 // };
 
 const displayShow = (categories) => {
-    const categoryContainer = document.getElementById('categories'); 
+    const categoryContainer = document.getElementById('categories');
     categories.forEach(item => {
         const buttonContainer = document.createElement('div');
-        buttonContainer.classList.add('mb-24','w-4/5','flex','items-center','p-10')
+        buttonContainer.classList.add('mb-24','flex','items-center','container','justify-center')
         buttonContainer.innerHTML = `
 
-        <button id="btn-${item.category}" onclick="loadCategoryPet('${item.category}')" class='flex categories-button rounded-2xl items-center gap-4 py-3 px-16 category-btn text-xl font-black '>
+        <button id="btn-${item.category}" onclick="loadCategoryPet('${item.category}')" class='flex categories-button rounded-2xl items-center justify-center gap-2 py-3 px-14 category-btn text-xl font-black bf'>
         ${item.category}
-        <div class='w-14 h-14'> <img class='w-14' src="${item.category_icon}" </div>
+        <div class='w-10 h-12'> <img class='w-14' src="${item.category_icon}" </div>
         </button>
         `;
        
