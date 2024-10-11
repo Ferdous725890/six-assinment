@@ -23,6 +23,10 @@ const loadCategoryPet = (id) => {
         });
 };
 
+
+
+
+
 const sortPetsByPrice = () => {
     showSpinner();
     fetch('https://openapi.programming-hero.com/api/peddy/pets')
@@ -127,11 +131,10 @@ const displayAllPetsData = (pets) => {
     if (pets.length == 0) {
         petsAllData.classList.remove('grid')
         petsAllData.innerHTML = `
-             <div class="max-h-[400px] max-w-[780px] w-full h-full bd flex flex-col gap-5 justify-center items-center">
+             <div class="md:h-[400px] md:w-[780px] w-full bd flex flex-col gap-5 justify-center items-center">
                 <img src="images/error.webp" alt="">
-                <h1 class="text-xl font-black">No Information Available</h1>
-                <p class="text-sm font-medium">It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
-                its layout. The point of using Lorem Ipsum is that it has a.</p>
+                <h1 class="text-xl font-black">No Information Available !</h1>
+                <p class="text-sm font-medium text-center w-4/5 md:mx-auto">It seems there’s no specific information available. However, I can help create a similar text or provide information on a topic of your choice. What would you like to know more about?</p>
             </div>
         `
         return
