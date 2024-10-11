@@ -236,7 +236,7 @@ const adopt = () => {
 
     const clockTime = setInterval(() => {
         num--; 
-        if (num < 0) { 
+        if (num < 1) { 
             clearInterval(clockTime);
             document.getElementById("my_modal_1").close();l
             return; 
