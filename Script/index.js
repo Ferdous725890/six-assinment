@@ -104,7 +104,7 @@ const displayAllPetsData = (pets) => {
         card.classList = 'card'
         card.innerHTML = `
 
-                <div class="card glass p-4 by">
+                <div class="card glass p-4 ">
                 <figure>
                     <img class='w-full rounded-lg object-cover' src="${pet.image}" alt="Image of ${pet.breed}" />
                 </figure>

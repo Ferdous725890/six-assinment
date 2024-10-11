@@ -46,23 +46,23 @@
 </head>
 
 <body class="lato-fronts">
-    <header class="br sticky top-0 bg-white z-[100]">
+    <header class="br sticky top-0 bg-white z-[100]">               <!--  class="br bf sticky top-2 bg-white z-[100]" -->
         <!------------------------------------------------------ Nav Section Start  -->
         <!--  mt-8 mb-8  top-8-->
-        <section class="container mx-auto w-11/12">
-            <nav class="flex mx-auto items-center justify-between pt-8 mb-7">
+        <section class="container mx-auto w-11/12 pt-2 pb-2">
+            <nav class="flex mx-auto items-center justify-between">
                 <div class="flex items-center">
                     <img class="mr-2" src="images/logo.webp" alt="">
                     <h1 class="text-3xl font-black">Peddy</h1>
                 </div>
-                <div class="bd">
+                <div class="hidden md:block">
                     <ul class="flex items-center font-color text-base font-normal bd">
                         <li><a class="mr-8" href="">Home</a></li>
                         <li><a class="mr-8" href="">Shop</a></li>
                         <li><a class="mr-8" href="">Contact</a></li>
                     </ul>
                 </div>
-                <div>
+                <div class="w-[120px]">
                     <img class="pl-10 pr-10 bd" src="images/user.png" alt="">
                 </div>
 
@@ -73,8 +73,8 @@
     <header class="container mx-auto bd ">
         <div class=" mx-auto w-11/12 mt-24 br">
             <div class="max-w-[752px]  mx-auto">
-                <h2 class="text-center text-3xl font-bold text-[#13131399]">Bringing Families Together</h2>
-                <h1 class="text-7xl font-bold text-center text-text-small_text_color mt-5">Your Path to Adoption Starts
+                <h2 class="text-center md:text-2xl font-bold text-[#13131399]">Bringing Families Together</h2>
+                <h1 class="text-5xl md:text-6xl font-bold text-center text-text-small_text_color mt-5">Your Path to Adoption Starts
                     Here</h1>
                 <p class="text-base font-normal font-color text-center mt-6 mb-8">It is a long established fact that a
                     reader will
@@ -93,19 +93,19 @@
         </div>
     </header>
 
-    <main class="container bd mx-auto w-11/12 mt-24">
+    <main class="container bd mx-auto w-11/12 mt-24 ">
         <div class="text-center flex flex-col  items-center justify-center">
             <h2 class="text-4xl text-small_text_color font-black ">Adopt Your Best Friend</h2>
-            <p class="text-base text-small_text_color font-normal font-color text-center mt-6 mb-8 w-[636px] bd">It is a
+            <p class="text-base text-small_text_color font-normal font-color text-center mt-6 mb-8 md:w-[636px] bd">It is a
                 long established fact that a reader will be distracted by the readable content of a page when looking at
                 its layout. The point of using Lorem Ipsum is that it has a.</p>
         </div>
 
-        <div class="flex justify-between mt-9 bd ">
-            <h2 class="text-small_text_color text-2xl font-black mb-24 ml-2">Best Deal For you</h2>
+        <div class="md:flex md:justify-between mt-9 bd">
+            <h2 class="text-small_text_color text-2xl font-black mb-10 md:mb-24 md:pl-14">Best Deal For you</h2>
             <div>
                 <button onclick="loadAllPetsData()"
-                    class="bg-btn_bg_color text-white px-8 py-3 rounded-md mr-2 text-center items-center text-lg font-bold">Sort
+                    class="bg-btn_bg_color text-white px-8 py-3 rounded-md mr-2 text-center items-center text-lg font-bold flex justify-center">Sort
                     by Price</button>
             </div>
         </div>
@@ -151,77 +151,52 @@
         </div>
     </dialog>
 
+    <footer class="bg-[#131313] pt-8 pb-10">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <footer class="bg-[#131313] ">
-
-        <section class="container  bd mx-auto mt-16">
-            <div class="w-11/12 mx-auto bd grid grid-cols-3 mt-24 mb-24">
-                <div>
-                    <div class="flex items-center mb-5">
+        <section class="container  bd mx-auto">
+            <div class="w-11/12 mx-auto bd md:grid md:grid-cols-3">
+                <div class="ml-14">
+                    <div class="flex items-center mb-5 ">
                         <img class="mr-2" src="images/logo.webp" alt="">
                         <h1 class="text-3xl text-[rgba(255,255,255,0.9)]">Peddy</h1>
                     </div>
-                    <div class="text-[rgba(255,255,255,0.9)] text-base font-normal bd mb-4">
-                        <p>Location: av. Washington 165, NY CA 54003</p>
-                        <p>Phone: +31 85 964 47 25</p>
-                        <p>Email: info@yourdomain.com</p>
-                        <p>Openings hours: 9.00 AM - 5.00 PM</p>
-                        <div class="flex text-4xl items-center gap-5 mt-4">
+                    <div class="text-[rgba(255,255,255,0.9)] text-sm font-normal md:mb-4">
+                        <p class="mb-2">Location: av. Washington 165, NY CA 54003</p>
+                        <p class="mb-2">Phone: +31 85 964 47 25</p>
+                        <p class="mb-2">Email: info@yourdomain.com</p>
+                        <p class="mb-2">Openings hours: 9.00 AM - 5.00 PM</p>
+                        <div class="flex text-4xl items-center gap-5 md:mt-4 w-40 mt-6">
                             <!-- Social Icon  -->
-                            <p><i class="fa-brands fa-facebook"></i></p>
-                            <p><i class="fa-brands fa-square-x-twitter"></i></p>
-                            <p><i class="fa-brands fa-youtube"></i></p>
-                            <p><i class="fa-brands fa-instagram"></i></p>
+                            <a href=""><img src="images/facebook.png" alt=""></a>
+                            <a href=""><img src="images/x-2 1.png" alt=""></a>
+                            <a href=""><img src="images/yoututbe.png" alt=""></a>
+                            <a href=""><img src="images/instagram.png" alt=""></a>
+                            
                         </div>
                     </div>
                 </div>
 
-                <div>
-                    <h2 class="text-[rgba(255,255,255,0.9)] text-lg font-bold mb-7">Useful Links</h2>
+                <div class="ml-14">
+                    <h2 class="text-[rgba(255,255,255,0.9)] text-lg font-bold md:mb-7 mb-5 md:mt-2 mt-10 ">Useful Links</h2>
                     <ul class="font-color text-base font-normal bd text-[rgba(255,255,255,0.9)]">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Shop</a></li>
-                        <li><a href="">Contact</a></li>
+                        <li><a class="text-sm" href="">Home</a></li>
+                        <li><a class="text-sm" href="">Shop</a></li>
+                        <li><a class="text-sm" href="">Contact</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h2 class="text-[rgba(255,255,255,0.9)] text-lg font-bold mb-7">Drop a Message</h2>
-                    <label class="input input-bordered flex items-center gap-2 mb-4">
+                <div class="ml-14">
+                    <h2 class="text-[rgba(255,255,255,0.9)] text-lg font-bold mb-7 mt-2">Drop a Message</h2>
+                    <label class="input input-bordered flex items-center gap-2 mb-4 w-3/5">
                         <input type="email" class="grow" placeholder="Enter your email" />
                     </label>
                     <div>
-                        <button class="bg-[rgb(14,122,129)] px-10 py-2 rounded-lg text-white ">View More</button>
+                        <button class="bg-[rgb(14,122,129)] px-20 py-2 rounded-lg text-white ">Subscribe</button>
                     </div>
                 </div>
             </div>
 
         </section>
     </footer>
-
-    <p id="time"></p>
-
     <script src="./Script/index.js"></script>
 </body>
 
