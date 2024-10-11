@@ -26,6 +26,10 @@ border-bottom: 1px solid lightgray;
   background-color: red;
   color: black;
 }
+.hoverpets-btn-catgory{
+  background-color: #0e7981ba;
+  color: white;
+}
 .categories-button{
   border: 1px solid rgba(14, 122, 129, 0.15);
 

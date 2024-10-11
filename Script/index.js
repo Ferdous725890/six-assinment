@@ -183,12 +183,12 @@ const displayAllPetsData = (pets) => {
                         ${pet.price > 0 ? pet.price : "price Not found.."}
                         </span>
                     </p>
-                    <div class='flex-row justify-between mt-4'>
-                     <button onclick="likeBtn('${pet.petId}', '${pet.image}')" class="text-[18px] text-[#0E7A81] text-btn-primary px-5 py-2 border             border-solid border-[rgb(14, 122, 129, 0.15)] rounded-[8px] text-xl font-bold">
+                    <div class='flex-row justify-between mt-4 lg:p-4 md:mr-10'>
+                     <button onclick="likeBtn('${pet.petId}', '${pet.image}')" class="text-[18px] text-[#0E7A81] text-btn-primary md:px-3 lg:px-5 py-[6px] px-4 border  border-solid border-[rgb(14, 122, 129, 0.15)] rounded-[8px] text-xl font-bold">
                         <i class="fa-regular fa-thumbs-up"></i>
                         </button>
-                        <button class="btn text-[#0E7A81]" onclick="adopt()">Adopt</button>
-                        <button onclick="loadDetails(${pet.petId})" class="btn text-[#0E7A81]">Details</button>
+                        <button class="text-[#0E7A81] border-[rgb(14, 122, 129, 0.15)] py-2 px-4 lg:px-5 button-border rounded-lg" onclick="adopt()">Adopt</button>
+                        <button onclick="loadDetails(${pet.petId})" class="text-[#0E7A81] border-[rgb(14, 122, 129, 0.15)] py-2 px-4 lg:px-5 button-border rounded-lg">Details</button>
                     </div>
                 </div>
             </div>
