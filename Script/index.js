@@ -153,7 +153,7 @@ const displayAllPetsData = (pets) => {
                     <img class='w-full rounded-lg object-cover' src="${pet.image}" alt="Image of ${pet.breed}" />
                 </figure>
                 <div class="mt-3">
-                    <p class="card-title text-xl font-black">
+                    <p class="text-xl font-black">
                         ${pet.pet_name}
                     </p>
                    <p class='flex-row mt-2'>
