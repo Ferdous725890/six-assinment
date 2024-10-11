@@ -148,7 +148,7 @@ const displayAllPetsData = (pets) => {
         card.classList = 'card'
         card.innerHTML = `
 
-                <div class="card glass p-4">
+                <div class="card glass p-4 max-w-[270px] w-full flex mx-auto">
                 <figure>
                     <img class='w-full rounded-lg object-cover' src="${pet.image}" alt="Image of ${pet.breed}" />
                 </figure>
@@ -157,33 +157,33 @@ const displayAllPetsData = (pets) => {
                         ${pet.pet_name}
                     </p>
                    <p class='flex-row mt-2'>
-                    <img class='me-2' src="/images/Frame (1).png" />
-                     Breed: <span class="${pet.breed && pet.breed.length > 0 ? '' : 'text-red-500'}">
+                    <img class='me-2 w-4' src="/images/Frame (1).png" />
+                    <span class='text-sm'> Breed: </span> <span class="${pet.breed && pet.breed.length > 0 ? '' : 'text-red-500'} text-sm">
                      ${pet.breed && pet.breed.length > 0 ? pet.breed : 'Not found !'}
                     </span>
                     </p>
                     <div class='flex'>
-                    <p class='flex-row'>
-                    <img class='me-2' src="/images/birth.png" />
-                        Birth:<span class="${pet.date_of_birth && pet.date_of_birth.length > 0 ? '' : 'text-red-500'}">
+                    <p class='flex-row mt-1'>
+                    <img class='me-2 w-5' src="/images/birth.png" /><span class='text-sm'> Birth: </span>
+                        <span class="${pet.date_of_birth && pet.date_of_birth.length > 0 ? '' : 'text-red-500'} text-sm">
                         ${pet.date_of_birth && pet.date_of_birth.length > 0 ? pet.date_of_birth : 'Not found !'}
                     </span>
                     </p>
                     </div>
 
-                    <p class='flex-row'>
-                        <img class='me-2' src="/images/gender.png"/>
-                       Gender:<span class="${pet.gender && pet.gender.length > 0 ? '' : 'text-red-500'}"> 
-                        ${pet.gender && pet.gender.length > 0 ? pet.gender : "Gender Not available !"}
+                    <p class='flex-row mt-1'>
+                        <img class='me-2' src="/images/gender.png"/><span class='text-sm'> Gender: </span>
+                       <span class="${pet.gender && pet.gender.length > 0 ? '' : 'text-red-500'} text-sm"> 
+                        ${pet.gender && pet.gender.length > 0 ? pet.gender : "Gender Not available!"}
                         </span>
                     </p>
-                    <p class='flex-row'>
-                        <img class='me-2' src="/images/price.png" alt="Price icon" />
-                        Price: <span class="${pet.price > 0 ? '' : 'text-red-500'}"> 
+                    <p class='flex-row mt-1'>
+                        <img class='' src="/images/price.png" alt="Price icon" /><span class='text-sm'> Price: </span>
+                        <span class="${pet.price > 0 ? '' : 'text-red-500'} text-sm"> 
                         ${pet.price > 0 ? pet.price : "price Not found.."}
                         </span>
                     </p>
-                    <div class='flex-row justify-between mt-4 lg:p-4 md:mr-10'>
+                     <div class='flex-row justify-between mt-4 lg:p-4 md:mr-10'>
                      <button onclick="likeBtn('${pet.petId}', '${pet.image}')" class="text-[18px] text-[#0E7A81] text-btn-primary md:px-3 lg:px-5 py-[6px] px-4 border  border-solid border-[rgb(14, 122, 129, 0.15)] rounded-[8px] text-xl font-bold">
                         <i class="fa-regular fa-thumbs-up"></i>
                         </button>
